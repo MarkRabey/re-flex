@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Opentrace/re-flex.svg?branch=master)](https://travis-ci.org/Opentrace/re-flex)
 [![npm version](https://badge.fury.io/js/re-flex.svg)](https://badge.fury.io/js/re-flex)
-[![Dependencies](https://david-dm.org/Opentrace/re-flex.svg)](https://david-dm.org/Opentrace/re-flex)
+[![dependencies Status](https://david-dm.org/Opentrace/re-flex/status.svg)](https://david-dm.org/Opentrace/re-flex)
 
 # Re-Flex
 Flexbox components for React.

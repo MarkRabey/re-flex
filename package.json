@@ -11,8 +11,7 @@
     "docs": "npm run dist && npm run docs:build && npm run docs:deploy",
     "examples": "webpack --devtool inline-source-map",
     "start": "webpack-dev-server --devtool inline-source-map --progress --colors --inline --hot --content-base demo",
-    "test": "ava",
-    "prepublish": "npm run dist && npm run docs"
+    "test": "ava"
   },
   "repository": {
     "type": "git",

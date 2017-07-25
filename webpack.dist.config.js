@@ -3,11 +3,11 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./webpack.config');
 
-config.entry = './src/Flex.jsx';
+config.entry = './src';
 config.output = {
   path: path.join(__dirname, './dist'),
-  filename: 'Flex.js',
-  library: 'Flex',
+  filename: 'index.js',
+  library: 'Re-Flex',
   libraryTarget: 'commonjs2',
 };
 config.externals = {

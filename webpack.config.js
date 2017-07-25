@@ -38,7 +38,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loaders: [
-          'babel-loader?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0',
+          'babel-loader?cacheDirectory',
           'eslint-loader',
         ],
       },

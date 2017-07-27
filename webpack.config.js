@@ -7,7 +7,8 @@ module.exports = {
   entry: './docs/index.jsx',
   output: {
     path: path.join(__dirname, './docs/dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    publicPath: '/dist/',
   },
   module: {
     loaders: [

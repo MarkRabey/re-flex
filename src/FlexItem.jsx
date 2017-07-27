@@ -16,13 +16,13 @@ const FlexItem = styled.div`
 FlexItem.propTypes = {
   width: PropTypes.string,
   horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  verticalAlign: PropTypes.oneOf(['top', 'middle', 'bottom']),
+  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
 };
 
 FlexItem.defaultProps = {
   width: null,
   horizontalAlign: 'left',
-  verticalAlign: 'middle',
+  verticalAlign: 'top',
   order: 'initial',
 };
 

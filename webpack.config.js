@@ -2,12 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './demo/index.jsx',
+  entry: './docs/index.jsx',
   output: {
-    path: path.join(__dirname, './demo/dist'),
+    path: path.join(__dirname, './docs/dist'),
     filename: 'index.js'
   },
   module: {
@@ -24,7 +23,7 @@ module.exports = {
           }, {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname, './src'), path.resolve(__dirname, './demo')]
+              includePaths: [path.resolve(__dirname, './src'), path.resolve(__dirname, './docs')]
             }
           }, {
             loader: 'postcss-loader',
@@ -46,9 +45,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
-    new CopyWebpackPlugin([
-      {from: 'demo/index.html'},
-    ]),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')

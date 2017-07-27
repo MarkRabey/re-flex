@@ -4,13 +4,10 @@
   "description": "Flexbox components for React",
   "main": "dist/index.js",
   "scripts": {
+    "prepublish": "npm run dist && npm run docs",
     "dist": "webpack --config webpack.dist.config.js",
-    "standalone": "webpack --config webpack.standalone.config.js",
-    "docs:build": "webpack --devtool inline-source-map",
-    "docs:deploy": "git add demo/dist && git commit -m \"rebuild docs\" && git subtree push --prefix demo/dist origin gh-pages",
-    "docs": "npm run dist && npm run docs:build && npm run docs:deploy",
-    "examples": "webpack --devtool inline-source-map",
-    "start": "webpack-dev-server --devtool inline-source-map --progress --colors --inline --hot --content-base demo",
+    "docs": "webpack --devtool inline-source-map",
+    "start": "webpack-dev-server --devtool inline-source-map --progress --colors --inline --hot --content-base docs",
     "test": "ava"
   },
   "repository": {
@@ -47,7 +44,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",

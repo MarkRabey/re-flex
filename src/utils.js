@@ -1,46 +1,19 @@
-const validateFraction = (fraction) => {
-  const [n, d] = fraction;
+import PropTypes from 'prop-types';
 
-  // Remove all whitespace and parse numbers
-  const numerator = parseInt(n.replace(/\s/g, ''), 10);
-  const denominator = parseInt(d.replace(/\s/g, ''), 10);
-  const result = numerator / denominator;
+const responsivePropType = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array,
+]);
 
-  if (denominator === 0) {
-    throw new Error('Your fraction divides by zero.');
-  }
-
-  if (!numerator || !denominator) {
-    throw new Error('Your fraction is missing a numerator or denominator.');
-  }
-
-  if (result > 1) {
-    throw new Error('Your fraction must be less than or equal to 1.');
-  }
-
-  return [numerator, denominator];
+const propTypes = {
+  width: responsivePropType,
+  fontSize: responsivePropType,
+  space: responsivePropType,
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
-const parseFraction = (string) => {
-  if (string.trim() === '1') {
-    return 1;
-  }
+export { propTypes };
 
-  const [rawNumerator, rawDenominator] = string.split('/');
-  const [numerator, denominator] = validateFraction([
-    rawNumerator, rawDenominator,
-  ]);
-
-  return numerator / denominator;
-};
-
-const flexBasis = (width, gutter) => {
-  const parsedWidth = parseFraction(width);
-  if (parsedWidth === 1) {
-    return '100%';
-  }
-
-  return `calc(${ parsedWidth * 100 }% - ${ gutter })`;
-};
-
-export default flexBasis;
+export default { propTypes };

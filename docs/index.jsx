@@ -12,11 +12,11 @@ import Live from './sections/Live';
 
 const Demo = () => (
   <div className="demo">
-    <Header />
-    <Installation />
-    <Components />
-    <Properties />
-    <Examples />
+    { /*<Header />
+        <Installation />
+        <Components />
+        <Properties />
+        <Examples /> */ }
     <Live />
   </div>
 );

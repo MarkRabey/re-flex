@@ -26,19 +26,9 @@ const Live = () => (
     <FlexItem>Item 3</FlexItem>
   </Flex>
 );` }>
-      <Flex cellWidth="1/2" gutter="0px">
-        <FlexItem>
-          <LiveEditor />
-        </FlexItem>
-
-        <FlexItem>
-          <LivePreview />
-        </FlexItem>
-
-        <FlexItem width="1">
-          <LiveError />
-        </FlexItem>
-      </Flex>
+  <LivePreview />
+  <LiveEditor />
+  <LiveError />
     </LiveProvider>
   </section>
 );

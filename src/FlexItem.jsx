@@ -1,29 +1,22 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import flexBasis from './utils';
+import { space, width, responsiveStyle } from 'styled-system';
+
+export const flex = responsiveStyle('flex');
+export const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap');
+export const order = responsiveStyle('order');
 
 const FlexItem = styled.div`
+  box-sizing: border-box;
+  ${ width },
+  ${ space },
+  ${ flex },
+  ${ wrap },
+  ${ order },
   ${ props => `
-    flex-basis: ${ flexBasis(props.width ? props.width : props.cellWidth, props.gutter) };
-    display: flex;
-    align-items: ${ props.verticalAlign };
-    justify-content: ${ props.horizontalAlign };
-    order: ${ props.order };
-    box-sizing: border-box;
+    ${ console.log(props) }
   ` }
 `;
 
-FlexItem.propTypes = {
-  width: PropTypes.string,
-  horizontalAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  verticalAlign: PropTypes.oneOf(['top', 'center', 'bottom']),
-};
-
-FlexItem.defaultProps = {
-  width: null,
-  horizontalAlign: 'left',
-  verticalAlign: 'top',
-  order: 'initial',
-};
+FlexItem.displayName = 'FlexItem';
 
 export default FlexItem;

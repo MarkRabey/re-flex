@@ -13,10 +13,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1;
+  font-weight: normal;
 }
 
-code {
-  color: hsl(350, 40%, 70%);
+:not(pre) > code {
+  padding: 2px;
+  font-size: 90%;
+  color: $bl-color;
+  border-radius: 2px;
+  background-color: #ddd;
 }
 
 .demo {
@@ -57,20 +62,27 @@ code {
   }
 
   .demo__item {
-    height: 75px;
-    border: 1px solid #333;
+    border: 1px solid #ddd;
   }
 
-  .prism-code, .react-live-preview, .react-live-error {
+  .demo__example {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table {
     width: 100%;
-  }
+    border-collapse: collapse;
 
-  .react-live-preview {
-    border: 1px solid #333;
-    padding: 12px;
-  }
+    .table__head {
+      background-color: #ddd;
+      border: 1px solid #ddd;
+    }
 
-  .react-live-error {
-    background-color: red;
+    td {
+      border: 1px solid #ddd;
+      padding: 6px 12px;
+    }
   }
 }

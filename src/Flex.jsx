@@ -44,9 +44,9 @@ Base.defaultProps = {
   row: false,
   column: false,
   className: '',
-  height: '',
   style: {},
   width: null,
+  height: null,
   cellWidth: null,
 };
 

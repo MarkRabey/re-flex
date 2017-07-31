@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import Flex from 'Flex';
-import FlexItem from 'FlexItem';
+// import FlexItem from 'FlexItem';
 
 export default () => (
   <section className="demo__section">
@@ -15,9 +15,9 @@ export default () => (
       <li><code>verticalAlign</code> = 'top'</li>
     </ul>
     <Flex className="demo__container">
-      <FlexItem className="demo__item"><code>&lt;FlexItem /&gt;</code></FlexItem>
-      <FlexItem className="demo__item"><code>&lt;FlexItem /&gt;</code></FlexItem>
-      <FlexItem className="demo__item"><code>&lt;FlexItem /&gt;</code></FlexItem>
+      <Flex className="demo__item"><code>&lt;Flex /&gt;</code></Flex>
+      <Flex className="demo__item"><code>&lt;Flex /&gt;</code></Flex>
+      <Flex className="demo__item"><code>&lt;Flex /&gt;</code></Flex>
     </Flex>
   </section>
 );

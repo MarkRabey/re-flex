@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import Flex from 'Flex';
-import FlexItem from 'FlexItem';
+// import FlexItem from 'FlexItem';
 
 export default () => (
   <section className="demo__section">

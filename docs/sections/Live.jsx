@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
-import FlexItem from 'FlexItem';
+import Flex from '../../src';
+
 import {
   LiveProvider,
   LiveEditor,
@@ -17,13 +17,13 @@ const Live = () => (
       </h2>
     </header>
     <LiveProvider
-      scope={{ Flex, FlexItem }}
+      scope={{ Flex }}
       code={
 `const App = () => (
   <Flex>
-    <FlexItem>Item 1</FlexItem>
-    <FlexItem>Item 2</FlexItem>
-    <FlexItem>Item 3</FlexItem>
+    <Flex>Item 1</Flex>
+    <Flex>Item 2</Flex>
+    <Flex>Item 3</Flex>
   </Flex>
 );` }>
   <LivePreview />

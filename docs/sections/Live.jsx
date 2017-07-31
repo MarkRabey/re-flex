@@ -20,7 +20,7 @@ const Live = () => (
       scope={{ Flex }}
       code={
 `const App = () => (
-  <Flex>
+  <Flex cellWidth={[ 1, 1/2 ]}>
     <Flex>Item 1</Flex>
     <Flex>Item 2</Flex>
     <Flex>Item 3</Flex>

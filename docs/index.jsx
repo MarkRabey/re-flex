@@ -7,8 +7,8 @@ import Header from './sections/Header';
 import Installation from './sections/Installation';
 import Components from './sections/Components';
 import Properties from './sections/Properties';
+import Responsive from './sections/Responsive';
 import Examples from './sections/Examples';
-import Live from './sections/Live';
 
 const Demo = () => (
   <div className="demo">
@@ -16,8 +16,8 @@ const Demo = () => (
     <Installation />
     <Components />
     <Properties />
+    <Responsive />
     <Examples />
-    <Live />
   </div>
 );
 

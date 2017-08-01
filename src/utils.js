@@ -1,46 +1,55 @@
-const validateFraction = (fraction) => {
-  const [n, d] = fraction;
+const breakpoints = [40, 52, 64, 76];
 
-  // Remove all whitespace and parse numbers
-  const numerator = parseInt(n.replace(/\s/g, ''), 10);
-  const denominator = parseInt(d.replace(/\s/g, ''), 10);
-  const result = numerator / denominator;
-
-  if (denominator === 0) {
-    throw new Error('Your fraction divides by zero.');
+const formatWidth = (width) => {
+  let formatted = width;
+  if (typeof formatted === 'number') {
+    formatted = formatted > 0 && formatted <= 1 ? `${ formatted * 100 }%` : `${ formatted }px`;
   }
-
-  if (!numerator || !denominator) {
-    throw new Error('Your fraction is missing a numerator or denominator.');
-  }
-
-  if (result > 1) {
-    throw new Error('Your fraction must be less than or equal to 1.');
-  }
-
-  return [numerator, denominator];
+  return `
+    width: ${ formatted };
+  `;
 };
 
-const parseFraction = (string) => {
-  if (string.trim() === '1') {
-    return 1;
+export const direction = (props) => {
+  console.log(props);
+  if (props.row) {
+    return 'flex-direction: row;';
+  } else if (props.column) {
+    return 'flex-direction: column;';
   }
-
-  const [rawNumerator, rawDenominator] = string.split('/');
-  const [numerator, denominator] = validateFraction([
-    rawNumerator, rawDenominator,
-  ]);
-
-  return numerator / denominator;
+  return null;
 };
 
-const flexBasis = (width, gutter) => {
-  const parsedWidth = parseFraction(width);
-  if (parsedWidth === 1) {
-    return '100%';
+export const flexWidth = (props) => {
+  if (props.width) {
+    const widths = Array.isArray(props.width) ? props.width : [props.width];
+    return widths.map((width, index) => {
+      const css = `
+        ${ index === 0 ? formatWidth(width) : '' }
+        ${ breakpoints[index] && `
+          @media screen and (min-width: ${ breakpoints[index] }em) {
+            ${ formatWidth(width) }
+          }
+        ` }
+      `;
+      return css;
+    });
   }
-
-  return `calc(${ parsedWidth * 100 }% - ${ gutter })`;
+  // return 'flex-grow: 1; width: 100%;';
+  return null;
 };
 
-export default flexBasis;
+export const flexHeight = (props) => {
+  if (props.height) {
+    return `
+      flex-grow: 0;
+      flex-shrink: 0;
+      height: ${ props.height };
+    `;
+  }
+  return null;
+};
+
+export default {
+  breakpoints, direction, flexWidth, flexHeight,
+};

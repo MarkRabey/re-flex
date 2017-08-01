@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import Flex from 'Flex';
-import FlexItem from 'FlexItem';
+// import FlexItem from 'FlexItem';
 
 export default () => (
   <section className="demo__section">
@@ -9,7 +9,8 @@ export default () => (
       <h2>Components</h2>
     </header>
     <p>
-      Re-flex uses 2 different componts, <code>Flex</code> and <code>FlexItem</code>.
+      Re-flex uses only 1 component, <code>Flex</code>.
+      Flex components are nested and configured to acheive the desired layout.
     </p>
   </section>
 );

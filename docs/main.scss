@@ -8,15 +8,21 @@ body {
   font-size: 16px;
   line-height: 1.7;
   padding: 25px 50px;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1;
+  font-weight: normal;
 }
 
-code {
-  color: hsl(350, 40%, 70%);
+:not(pre) > code {
+  padding: 2px;
+  font-size: 90%;
+  color: $bl-color;
+  border-radius: 2px;
+  background-color: #ddd;
 }
 
 .demo {
@@ -57,21 +63,27 @@ code {
   }
 
   .demo__item {
+    border: 1px solid #ddd;
+  }
+
+  .demo__example {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table {
     width: 100%;
-    height: 75px;
-    border: 1px solid #333;
-  }
+    border-collapse: collapse;
 
-  .prism-code, .react-live-preview, .react-live-error {
-    width: 100%;
-  }
+    .table__head {
+      background-color: #ddd;
+      border: 1px solid #ddd;
+    }
 
-  .react-live-preview {
-    border: 1px solid #333;
-    padding: 12px;
-  }
-
-  .react-live-error {
-    background-color: red;
+    td {
+      border: 1px solid #ddd;
+      padding: 6px 12px;
+    }
   }
 }

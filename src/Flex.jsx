@@ -59,9 +59,9 @@ const Flex = styled(Base)`
   justify-content: ${ props => props.justifyContent || 'inherit' };
   align-content: ${ props => props.alignContent || 'inherit' };
   align-items: ${ props => props.alignItems || 'inherit' };
-  ${ flexWidth },
-  ${ flexHeight },
-  ${ direction },
+  ${ direction }
+  ${ flexWidth }
+  ${ flexHeight }
 `;
 
 Flex.displayName = 'Flex';

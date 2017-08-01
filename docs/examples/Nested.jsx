@@ -13,8 +13,8 @@ export default () => (
     <SyntaxHighlighter language="html" style={ atomOneDark }>
 {`<Flex row>
   <Flex row>
-    <Flex column width="100px">Left</Flex>
-    <Flex column width="100px">Left</Flex>
+    <Flex column width="100px">Fixed width</Flex>
+    <Flex column width="100px">Fixed width</Flex>
   </Flex>
   <Flex row>All the place in the world</Flex>
 </Flex>`}
@@ -22,8 +22,8 @@ export default () => (
 
     <Flex row>
       <Flex row>
-        <Flex column width="100px">Left</Flex>
-        <Flex column width="100px">Left</Flex>
+        <Flex column width="100px">Fixed width</Flex>
+        <Flex column width="100px">Fixed width</Flex>
       </Flex>
       <Flex row>All the place in the world</Flex>
     </Flex>

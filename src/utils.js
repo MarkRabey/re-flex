@@ -11,6 +11,7 @@ const formatWidth = (width) => {
 };
 
 export const direction = (props) => {
+  console.log(props);
   if (props.row) {
     return 'flex-direction: row;';
   } else if (props.column) {
@@ -34,7 +35,8 @@ export const flexWidth = (props) => {
       return css;
     });
   }
-  return 'flex-grow: 1; width: 100%;';
+  // return 'flex-grow: 1; width: 100%;';
+  return null;
 };
 
 export const flexHeight = (props) => {

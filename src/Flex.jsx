@@ -1,69 +1,45 @@
-import React from 'react';
+// import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { direction, flexWidth, flexHeight } from './utils';
+import ElementWrapper from './ElementWrapper';
 
-const Base = ({ children, className, cellWidth, ...rest }) => (
-  <div className={ className } { ...rest }>
-    {
-      React.Children.map(children, (child) => {
-        if (child.type === undefined) {
-          return child;
-        }
-        const childProps = { ...child.props };
-        if (cellWidth && !childProps.width) {
-          childProps.width = cellWidth;
-        }
-        return React.cloneElement(child, childProps);
-      })
-    }
-  </div>
-);
+const Flex = styled(ElementWrapper)`
+  display: flex;
+  align-items: ${ props => props.alignItems };
+  justify-content: ${ props => props.justifyContent };
+  ${ props => `
+    ${ props.gutter > 0 ? `
+      margin-left: -${ props.gutter / 2 }em;
+      margin-right: -${ props.gutter / 2 }em;
+    ` : null }
+  ` }
+  wrap: ${ props => (props.wrap ? 'wrap' : 'nowrap') };
+`;
 
-Base.propTypes = {
-  children: PropTypes.node,
-  row: PropTypes.bool,
-  column: PropTypes.bool,
-  className: PropTypes.string,
-  height: PropTypes.string,
-  style: PropTypes.object,
-  width: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+Flex.displayName = 'Flex';
+
+Flex.propTypes = {
+  alignItems: PropTypes.string,
   cellWidth: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.number,
     PropTypes.string,
   ]),
+  children: PropTypes.node,
+  className: PropTypes.string,
+  gutter: PropTypes.number,
+  justifyContent: PropTypes.string,
+  wrap: PropTypes.bool,
 };
 
-Base.defaultProps = {
-  children: null,
-  row: false,
-  column: false,
-  className: '',
-  style: {},
-  width: null,
-  height: null,
+Flex.defaultProps = {
+  alignItems: 'flex-start',
   cellWidth: null,
+  children: null,
+  className: null,
+  gutter: 0,
+  justifyContent: 'flex-start',
+  wrap: false,
 };
-
-const Flex = styled(Base)`
-  box-sizing: border-box;
-  display: flex;
-  flex-shrink: 0;
-  flex-basis: auto;
-  flex-wrap: ${ props => props.wrap || 'wrap' };
-  justify-content: ${ props => props.justifyContent || 'inherit' };
-  align-content: ${ props => props.alignContent || 'inherit' };
-  align-items: ${ props => props.alignItems || 'inherit' };
-  ${ direction }
-  ${ flexWidth }
-  ${ flexHeight }
-`;
-
-Flex.displayName = 'Flex';
 
 export default Flex;

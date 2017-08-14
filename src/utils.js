@@ -6,12 +6,11 @@ const formatWidth = (width) => {
     formatted = formatted > 0 && formatted <= 1 ? `${ formatted * 100 }%` : `${ formatted }px`;
   }
   return `
-    width: ${ formatted };
+    flex-basis: ${ formatted };
   `;
 };
 
 export const direction = (props) => {
-  console.log(props);
   if (props.row) {
     return 'flex-direction: row;';
   } else if (props.column) {
@@ -36,7 +35,7 @@ export const flexWidth = (props) => {
     });
   }
   // return 'flex-grow: 1; width: 100%;';
-  return null;
+  return 'flex-basis: auto;';
 };
 
 export const flexHeight = (props) => {
@@ -49,6 +48,10 @@ export const flexHeight = (props) => {
   }
   return null;
 };
+
+// export const breakpointStyles = (props) => {
+
+// };
 
 export default {
   breakpoints, direction, flexWidth, flexHeight,

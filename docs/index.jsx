@@ -14,14 +14,14 @@ import { Flex, Box } from 're-flex';
 const Demo = () => (
   <div className="demo">
   <Flex element="section" gutter={ 0.25 }>
-    <Box element="article" width={ 0.5 }>
+    <Box element="article">
       <code>
-        Flex > Box(width=0.5)
+        Flex > Box
       </code>
     </Box>
-    <Box element="article" width={ 0.5 }>
+    <Box element="article">
       <code>
-        Flex > Box(width=0.5)
+        Flex > Box
       </code>
     </Box>
   </Flex>

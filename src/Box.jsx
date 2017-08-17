@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import ElementWrapper from './ElementWrapper';
+import { flexWidth } from './utils';
 
 const Box = styled(ElementWrapper)`
+  ${ flexWidth }
   ${ props => `
-    ${ /auto/.test(props.width) ?
-      'flex: 1 1 auto; min-width: 0; min-height: 0;' :
-      `width: ${ typeof props.width === 'number' ? `${ (props.width * 100) }%` : props.width };
-    ` }
-
+    flex-direction: ${ props.direction };
     ${ props.gutter > 0 ? `
       padding-left: ${ props.gutter / 2 }em;
       padding-right: ${ props.gutter / 2 }em;
@@ -16,6 +14,7 @@ const Box = styled(ElementWrapper)`
 `;
 
 Box.defaultProps = {
+  direction: 'row',
   width: 1,
 };
 

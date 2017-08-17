@@ -1,4 +1,3 @@
-// import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ElementWrapper from './ElementWrapper';
@@ -13,7 +12,7 @@ const Flex = styled(ElementWrapper)`
       margin-right: -${ props.gutter / 2 }em;
     ` : null }
   ` }
-  wrap: ${ props => (props.wrap ? 'wrap' : 'nowrap') };
+  flex-wrap: ${ props => (props.nowrap ? 'nowrap' : 'wrap') };
 `;
 
 Flex.displayName = 'Flex';
@@ -29,7 +28,7 @@ Flex.propTypes = {
   className: PropTypes.string,
   gutter: PropTypes.number,
   justifyContent: PropTypes.string,
-  wrap: PropTypes.bool,
+  nowrap: PropTypes.bool,
 };
 
 Flex.defaultProps = {
@@ -39,7 +38,7 @@ Flex.defaultProps = {
   className: null,
   gutter: 0,
   justifyContent: 'flex-start',
-  wrap: false,
+  nowrap: false,
 };
 
 export default Flex;

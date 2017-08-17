@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/styles';
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
+import { Flex, Box } from 're-flex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/styles';
 
@@ -11,21 +11,23 @@ export default () => (
     </header>
 
     <SyntaxHighlighter language="html" style={ atomOneDark }>
-{`<Flex row>
-  <Flex row>
-    <Flex column width="100px">Fixed width</Flex>
-    <Flex column width="100px">Fixed width</Flex>
+{`<Flex>
+  <Flex>
+    <Flex width="100px">Fixed width</Flex>
+    <Flex width="100px">Fixed width</Flex>
   </Flex>
-  <Flex row>All the place in the world</Flex>
+  <Flex>All the place in the world</Flex>
 </Flex>`}
     </SyntaxHighlighter>
 
-    <Flex row>
-      <Flex row>
-        <Flex column width="100px">Fixed width</Flex>
-        <Flex column width="100px">Fixed width</Flex>
-      </Flex>
-      <Flex row>All the place in the world</Flex>
+    <Flex gutter={1}>
+      <Box width={1/3}>Box</Box>
+      <Box width={2/3}>
+        <Flex gutter={1}>
+          <Box width={1}>Box</Box>
+          <Box width={1}>Box</Box>
+        </Flex>
+      </Box>
     </Flex>
   </article>
 );

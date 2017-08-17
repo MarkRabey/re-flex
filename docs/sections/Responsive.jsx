@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
 
 export default () => (
   <section className="demo__section">
@@ -8,5 +7,6 @@ export default () => (
       <h2 id="responsive-layouts">Responsive Layouts</h2>
     </header>
 
+    
   </section>
 );

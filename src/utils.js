@@ -1,55 +1,24 @@
-const breakpoints = [40, 52, 64, 76];
-
-const formatWidth = (width) => {
-  let formatted = width;
-  if (typeof formatted === 'number') {
-    formatted = formatted > 0 && formatted <= 1 ? `${ formatted * 100 }%` : `${ formatted }px`;
+const formatWidth = (width, gutter) => {
+  if (/auto/.test(width)) {
+    return 'flex: 1 1 auto; min-width: 0; min-height: 0;';
   }
-  return `
-    width: ${ formatted };
-  `;
-};
 
-export const direction = (props) => {
-  console.log(props);
-  if (props.row) {
-    return 'flex-direction: row;';
-  } else if (props.column) {
-    return 'flex-direction: column;';
-  }
-  return null;
+  return `width: calc(${ typeof width === 'number' ? `${ (width * 100) }%` : width } - ${ gutter }em);`;
 };
 
 export const flexWidth = (props) => {
-  if (props.width) {
-    const widths = Array.isArray(props.width) ? props.width : [props.width];
-    return widths.map((width, index) => {
-      const css = `
-        ${ index === 0 ? formatWidth(width) : '' }
-        ${ breakpoints[index] && `
-          @media screen and (min-width: ${ breakpoints[index] }em) {
-            ${ formatWidth(width) }
-          }
-        ` }
-      `;
-      return css;
-    });
+  if (Array.isArray(props.width)) {
+    return props.width.map(entry => `
+      ${ Array.isArray(entry) ? `
+        @media screen and (min-width: ${ entry[0] }px) {
+          ${ formatWidth(entry[1], props.gutter) }
+        }
+      ` : formatWidth(entry, props.gutter) }
+    `);
   }
-  // return 'flex-grow: 1; width: 100%;';
-  return null;
-};
-
-export const flexHeight = (props) => {
-  if (props.height) {
-    return `
-      flex-grow: 0;
-      flex-shrink: 0;
-      height: ${ props.height };
-    `;
-  }
-  return null;
+  return formatWidth(props.width, props.gutter);
 };
 
 export default {
-  breakpoints, direction, flexWidth, flexHeight,
+  flexWidth,
 };

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
+import { Flex } from 're-flex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/styles';
 
@@ -11,7 +11,7 @@ export default () => (
     </header>
 
     <SyntaxHighlighter language="html" style={ atomOneDark }>
-{`<Flex height="150px"
+{`<Flex
   alignItems="center"
   justifyContent="center"
   style={{ backgroundColor: '#ddd', fontSize: 36 }}>
@@ -19,7 +19,7 @@ export default () => (
 </Flex>`}
     </SyntaxHighlighter>
 
-    <Flex height="150px"
+    <Flex
       alignItems="center"
       justifyContent="center"
       style={{ backgroundColor: '#ddd', fontSize: 36 }}>

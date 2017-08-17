@@ -1,4 +1,5 @@
 import Flex from './Flex';
+import Box from './Box';
 
-export { default as Flex } from './Flex';
+export { Flex, Box };
 export default Flex;

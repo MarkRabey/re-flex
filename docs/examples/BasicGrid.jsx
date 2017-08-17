@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
+import { Flex, Box } from 're-flex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/styles';
 
@@ -13,22 +13,22 @@ export default () => (
 
     <SyntaxHighlighter language="html" style={ atomOneDark }>
 {`<Flex
-  cellWidth={[ 1, 1/2, 1/4 ]}
-  style={{ padding: 12, backgroundColor: '#ddd' }}>
-  <Flex>Flex #1</Flex>
-  <Flex>Flex #2</Flex>
-  <Flex>Flex #3</Flex>
-  <Flex>Flex #4</Flex>
+  gutter={ 1 }
+  style={{ backgroundColor: '#ddd' }}>
+  <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]}>Box #1</Box>
+  <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]}>Box #2</Box>
+  <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]}>Box #3</Box>
+  <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]}>Box #4</Box>
 </Flex>`}
     </SyntaxHighlighter>
 
     <Flex
-      cellWidth={[ 1, 1/2, 1/4 ]}
-      style={{ padding: 12, backgroundColor: '#ddd' }}>
-      <Flex style={{ padding: 12, backgroundColor: '#bcbcbc' }}>Flex #1</Flex>
-      <Flex style={{ padding: 12, backgroundColor: '#bcbcbc' }}>Flex #2</Flex>
-      <Flex row style={{ padding: 12, backgroundColor: '#bcbcbc' }}>Flex #3</Flex>
-      <Flex style={{ padding: 12, backgroundColor: '#bcbcbc' }}>Flex #4</Flex>
+      gutter={ 1 }
+      style={{ backgroundColor: '#ddd' }}>
+      <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]} style={{ backgroundColor: '#bcbcbc' }}>Box #1</Box>
+      <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]} style={{ backgroundColor: '#bcbcbc' }}>Box #2</Box>
+      <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]} style={{ backgroundColor: '#bcbcbc' }}>Box #3</Box>
+      <Box width={[1, [600, 1/2], [800, 1/3], [960, 1/4]]} style={{ backgroundColor: '#bcbcbc' }}>Box #4</Box>
     </Flex>
   </article>
 );

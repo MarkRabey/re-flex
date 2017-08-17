@@ -6,7 +6,7 @@ export default () => (
     <header className="demo__section-header">
       <h2>Installation</h2>
     </header>
-    <code className="prism-code">
+    <code>
       npm install re-grid
     </code>
   </section>

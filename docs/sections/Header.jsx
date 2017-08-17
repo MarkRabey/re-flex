@@ -1,17 +1,17 @@
 /* eslint-disable */
 import React from 'react';
-import Flex from 'Flex';
+import { Flex, Box } from 're-flex';
 
 const Header = () => (
-  <Flex className="demo__header" alignItems="center" alignContent="center" justifyContent="center">
-    <Flex>
+  <Flex className="demo__header">
+    <Box>
       <h1>Re-Flex</h1>
-    </Flex>
-    <Flex>
+    </Box>
+    <Box>
       <p>
         Another Grid/Flexbox thing for React.
       </p>
-    </Flex>
+    </Box>
   </Flex>
 );
 

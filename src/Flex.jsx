@@ -6,13 +6,13 @@ const Flex = styled(ElementWrapper)`
   display: flex;
   align-items: ${ props => props.alignItems };
   justify-content: ${ props => props.justifyContent };
+  flex-wrap: ${ props => (props.nowrap ? 'nowrap' : 'wrap') };
   ${ props => `
     ${ props.gutter > 0 ? `
       margin-left: -${ props.gutter / 2 }em;
       margin-right: -${ props.gutter / 2 }em;
     ` : null }
   ` }
-  flex-wrap: ${ props => (props.nowrap ? 'nowrap' : 'wrap') };
 `;
 
 Flex.displayName = 'Flex';

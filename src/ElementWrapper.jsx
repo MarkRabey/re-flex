@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 const ElementWrapper = ({ element, children, ...props }) => {
   const Element = element;
+  console.log(typeof children);
   return (
     <Element { ...props }>
       {
         React.Children.map(children, child => (
-          React.cloneElement(child, {
-            gutter: props.gutter,
-          })
+          typeof child === 'object' ?
+            React.cloneElement(child, {
+              gutter: props.gutter,
+            }) : child
         ))
       }
     </Element>

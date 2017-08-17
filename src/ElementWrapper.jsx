@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const ElementWrapper = ({ element, children, ...props }) => {
   const Element = element;
-  console.log(typeof children);
   return (
     <Element { ...props }>
       {

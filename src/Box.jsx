@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import ElementWrapper from './ElementWrapper';
-import { flexWidth } from './utils';
+import { flexWidth, boxSizing } from './utils';
 
 const Box = styled(ElementWrapper)`
   ${ flexWidth }
+  ${ boxSizing }
   ${ props => `
     flex-direction: ${ props.direction };
     ${ props.gutter > 0 ? `

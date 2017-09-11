@@ -3,8 +3,16 @@ const formatWidth = (width, gutter) => {
     return 'flex: 1 1 auto; min-width: 0; min-height: 0;';
   }
 
-  return `width: calc(${ typeof width === 'number' ? `${ (width * 100) }%` : width } - ${ gutter }em);`;
+  const formattedWidth = typeof width === 'number' ? `${ (width * 100) }%` : width;
+
+  if (gutter) {
+    return `width: calc(${ formattedWidth } - ${ gutter }em);`;
+  }
+
+  return `width: ${ formattedWidth };`;
 };
+
+export const boxSizing = props => `box-sizing: ${ props.gutter ? 'inherit' : 'border-box' };`;
 
 export const flexWidth = (props) => {
   if (Array.isArray(props.width)) {

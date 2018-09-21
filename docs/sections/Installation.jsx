@@ -7,7 +7,7 @@ export default () => (
       <h2>Installation</h2>
     </header>
     <code>
-      npm install re-grid
+      npm install re-flex --save
     </code>
   </section>
 );

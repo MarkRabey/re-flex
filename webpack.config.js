@@ -1,10 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './docs/index.jsx',
+  mode: 'production',
+  entry: {
+    main: './docs/index.jsx',
+  },
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, './docs/dist'),
@@ -12,28 +15,14 @@ module.exports = {
     publicPath: '/dist/',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          }, {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [path.resolve(__dirname, './src'), path.resolve(__dirname, './docs')]
-            }
-          }, {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [autoprefixer({ browsers: ['last 2 versions'] })]
-            }
-          }]
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.jsx?$/,
@@ -46,8 +35,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'main.css',
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
@@ -58,5 +48,8 @@ module.exports = {
     alias: {
       're-flex': path.resolve(__dirname, 'src'),
     }
+  },
+  optimization: {
+    minimize: true,
   },
 };

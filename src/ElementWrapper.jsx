@@ -7,10 +7,7 @@ const ElementWrapper = ({ element, children, ...props }) => {
     <Element { ...props }>
       {
         React.Children.map(children, child => (
-          typeof child === 'object' ?
-            React.cloneElement(child, {
-              gutter: props.gutter,
-            }) : child
+          typeof child === 'object' ? React.cloneElement(child, { gutter: props.gutter }) : child
         ))
       }
     </Element>
